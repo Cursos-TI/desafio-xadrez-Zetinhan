@@ -1,32 +1,82 @@
 #include <stdio.h>
+#define bispolim 5
+#define torrelim 5
+#define rainhalim 8
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void Bispo()
+{
+    int bispomov;
+       //pedindo a quantidade de movimentos do usuário
+    printf("\n Digite quantos espaços você quer mover o bispo\n", bispolim);
+    scanf("%d", &bispomov);
+    if (bispomov < 1 || bispomov > bispolim)
+    {
+        printf("\nValor Inválido! o bispo pode se mover apenas entre 1 e %d casas \n", bispolim);
+    }
+    printf("\n O Bispo se moveu em %d casas para a diagonal superior direita\n", bispomov);
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void Torre()
+{
+    int torremov;
+       //pedindo a quantidade de movimentos do usuário
+    printf("\n Digite quantos espaços você quer mover a torre\n", torrelim);
+    scanf("%d", &torremov);
+    if (torremov < 1 || torremov > torrelim)
+    {
+        printf("\nValor Inválido! a torre pode se mover apenas entre 1 e %d casas \n", torrelim);
+    }
+    printf("\n A torre se moveu em %d casas para a direita\n", torremov);
+}
+void Rainha()
+{
+    int rainhamov;
+       //pedindo a quantidade de movimentos do usuário
+    printf("\n Digite quantos espaços você quer mover a rainha\n", rainhalim);
+    scanf("%d", &rainhamov);
+    if (rainhamov < 1 || rainhamov > rainhalim)
+    {
+        printf("\nValor Inválido! a rainha pode se mover apenas entre 1 e %d casas \n", rainhalim);
+    }
+    printf("\n A Rainha se movimentou para %d casas para a esquerda", rainhamov);
+} 
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+void Sair()
+{
+    printf("Saindo do Programa...");
+}
+int main()
+{
+    int prossiga;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    do
+    {
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+        printf("\n Movimentação de Xadrez com Menu\n");
+        printf("1. Bispo \n");
+        printf("2. Torre\n");
+        printf("3. Rainha\n");
+        printf("0. Sair\n");
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+        scanf("%d", &prossiga);
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
-    return 0;
+        switch (prossiga)
+        {
+        case 1:
+            Bispo();
+            break;
+        case 2:
+            Torre();
+            break;
+        case 3:
+            Rainha();
+            break;
+        case 0:
+            Sair();
+            break;
+        default:
+            printf("Digite uma opção válida:\n");
+        }
+    } while (prossiga);
 }
